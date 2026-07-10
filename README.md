@@ -1,8 +1,21 @@
 # 🛡️ Security Log Automation Platform
 
+<!-- 기술 스택 배지 (shields.io 정적 배지 — GitHub 에서 자동 렌더링) -->
+![n8n](https://img.shields.io/badge/n8n-workflow-EA4B71?logo=n8n&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-412991?logo=openai&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-Webhook-5865F2?logo=discord&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 n8n · Python · OpenAI · Discord 로 구성한 **보안 로그 자동 분석 & AI 대응 시스템 (SOAR)**.
 가상 회사 서버 로그를 생성 → 자동 감지 → 위험도 분석 → AI 요약 → Discord 알림 → CSV/리포트 저장까지
 실제 보안 운영(SOC) 사이클을 경량 도구로 재현한 포트폴리오 프로젝트입니다.
+
+🔗 **Repository**: https://github.com/heejinny/security-log-platform
+
+> ⚠️ 모든 IP 는 문서화 전용 예약 대역(RFC 5737: `192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24`)을
+> 사용한 **가상 데이터**이며, 실제 시스템을 대상으로 하지 않는 **교육·포트폴리오용** 프로젝트입니다.
 
 ---
 
@@ -158,3 +171,8 @@ n8n UI → 우상단 메뉴 → **Import from File** →
 
 ## 7. 기술 스택
 Docker · Docker Compose · n8n · Python 3.12 · OpenAI API · Discord Webhook · CSV / JSON
+
+---
+
+## 8. 라이선스
+[MIT License](LICENSE) © 2026 heejinny
