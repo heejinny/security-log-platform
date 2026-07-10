@@ -1,0 +1,51 @@
+# =============================================================
+#  Docker Compose: 로컬에서 전체 플랫폼을 한 번에 띄운다.
+#  실행:  docker compose up -d --build
+#  종료:  docker compose down
+# =============================================================
+
+services:
+  n8n:
+    # build: 위에서 만든 Dockerfile 로 커스텀 이미지를 빌드해서 사용
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: security-log-platform/n8n:latest
+    container_name: sec-n8n
+    restart: unless-stopped
+
+    ports:
+      # 호스트 5678 → 컨테이너 5678 (브라우저에서 http://localhost:5678 접속)
+      - "5678:5678"
+
+    environment:
+      # --- 접속/타임존 설정 ---
+      # n8n 2.x는 첫 실행 시 브라우저에서 관리자(Owner) 계정을 만들도록 안내한다.
+      # (예전 N8N_BASIC_AUTH_* 방식은 폐기되어 사용하지 않음)
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - GENERIC_TIMEZONE=Asia/Seoul
+      - TZ=Asia/Seoul
+
+      # --- 작업 폴더(우리 스크립트/데이터가 마운트되는 곳) ---
+      - N8N_USER_FOLDER=/home/node
+      - N8N_RUNNERS_ENABLED=true
+
+      # --- 컨테이너 안에서 스크립트가 쓸 비밀값 (analyzer/ai_client 가 참조) ---
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL}
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - ALERT_MIN_SCORE=${ALERT_MIN_SCORE}
+
+    volumes:
+      # n8n 설정/워크플로우 영속화 (도커 관리 볼륨)
+      - n8n_data:/home/node/.n8n
+      # 우리 코드/데이터를 컨테이너 /data 아래로 연결
+      - ./scripts:/data/scripts
+      - ./logs:/data/logs
+      - ./output:/data/output
+
+# 도커가 관리하는 명명 볼륨 (컨테이너를 지워도 n8n 설정은 유지)
+volumes:
+  n8n_data:

@@ -1,0 +1,10 @@
+# Python 의존성 (커스텀 n8n 이미지에 설치됨)
+
+# OpenAI API 호출 (Step 6)
+openai>=1.30.0
+
+# Discord Webhook 등 HTTP 요청 (Step 7)
+requests>=2.31.0
+
+# .env 파일 로딩 (로컬에서 스크립트 단독 실행 시 편의)
+python-dotenv>=1.0.0

@@ -1,0 +1,51 @@
+{
+  "name": "Daily Security Report",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * *"
+            }
+          ]
+        }
+      },
+      "id": "trigger-daily",
+      "name": "Every day 09:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "command": "python3 /data/scripts/report.py"
+      },
+      "id": "exec-report",
+      "name": "Generate Report (Python)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.stdout || '{}';\nlet parsed;\ntry { parsed = JSON.parse(raw); } catch (e) { parsed = { error: 'JSON parse fail', raw }; }\nreturn [{ json: parsed }];"
+      },
+      "id": "code-parse-report",
+      "name": "Parse Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 300]
+    }
+  ],
+  "connections": {
+    "Every day 09:00": {
+      "main": [[{ "node": "Generate Report (Python)", "type": "main", "index": 0 }]]
+    },
+    "Generate Report (Python)": {
+      "main": [[{ "node": "Parse Report", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}

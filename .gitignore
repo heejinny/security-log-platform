@@ -1,0 +1,23 @@
+# === 비밀 정보: 절대 커밋 금지 ===
+# 실제 API 키/웹훅 URL은 .env 에만 두고, 저장소에는 .env.example 만 올린다.
+.env
+
+# === 실행 중 생성되는 데이터 ===
+# 로그와 결과물은 코드가 아니므로 저장소에 올리지 않는다.
+# (.gitkeep 으로 빈 폴더 구조만 유지)
+logs/*
+!logs/.gitkeep
+output/*.csv
+output/reports/*
+!output/reports/.gitkeep
+
+# === Python ===
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# === OS / 에디터 ===
+.DS_Store
+.idea/
+.vscode/

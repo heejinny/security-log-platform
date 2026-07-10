@@ -1,0 +1,51 @@
+{
+  "name": "Security Alert Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "trigger-schedule",
+      "name": "Every 1 min",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "command": "python3 /data/scripts/run_pipeline.py"
+      },
+      "id": "exec-pipeline",
+      "name": "Run Pipeline (Python)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Execute Command 노드의 stdout(JSON 문자열)을 파싱해\n// 이후 노드에서 쓰기 좋은 구조로 바꾼다.\nconst raw = $input.first().json.stdout || '{}';\nlet parsed;\ntry { parsed = JSON.parse(raw); } catch (e) { parsed = { error: 'JSON parse fail', raw }; }\nreturn [{ json: parsed }];"
+      },
+      "id": "code-parse",
+      "name": "Parse Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 300]
+    }
+  ],
+  "connections": {
+    "Every 1 min": {
+      "main": [[{ "node": "Run Pipeline (Python)", "type": "main", "index": 0 }]]
+    },
+    "Run Pipeline (Python)": {
+      "main": [[{ "node": "Parse Result", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}
