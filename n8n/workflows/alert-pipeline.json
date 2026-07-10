@@ -1,5 +1,7 @@
 {
+  "id": "alert-pipeline-001",
   "name": "Security Alert Pipeline",
+  "active": false,
   "nodes": [
     {
       "parameters": {

@@ -1,5 +1,7 @@
 {
+  "id": "daily-report-001",
   "name": "Daily Security Report",
+  "active": false,
   "nodes": [
     {
       "parameters": {

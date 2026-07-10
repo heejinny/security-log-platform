@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="460" viewBox="0 0 760 460" font-family="'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <rect width="760" height="460" rx="12" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="64" rx="12" fill="#1f2937"/>
+  <rect x="0" y="40" width="760" height="24" fill="#1f2937"/>
+  <text x="28" y="41" fill="#ffffff" font-size="20" font-weight="700">📊 Daily Security Report</text>
+  <text x="732" y="41" text-anchor="end" fill="#9ca3af" font-size="14">2026-07-10</text>
+
+  <!-- 메트릭 타일 3개 -->
+  <g>
+    <rect x="28"  y="88" width="220" height="86" rx="8" fill="#f3f4f6"/>
+    <text x="44" y="116" fill="#6b7280" font-size="12">총 이벤트 수</text>
+    <text x="44" y="152" fill="#111827" font-size="30" font-weight="800">5</text>
+
+    <rect x="268" y="88" width="220" height="86" rx="8" fill="#f3f4f6"/>
+    <text x="284" y="116" fill="#6b7280" font-size="12">최다 공격 IP</text>
+    <text x="284" y="150" fill="#111827" font-size="20" font-weight="800">203.0.113.2</text>
+
+    <rect x="508" y="88" width="224" height="86" rx="8" fill="#f3f4f6"/>
+    <text x="524" y="116" fill="#6b7280" font-size="12">평균 위험도</text>
+    <text x="524" y="152" fill="#111827" font-size="30" font-weight="800">68.0</text>
+  </g>
+
+  <!-- 위험도별 막대차트 -->
+  <text x="28" y="210" fill="#374151" font-size="14" font-weight="700">위험도별 분포</text>
+  <g font-size="13" fill="#374151">
+    <text x="28" y="240">CRITICAL</text>
+    <rect x="110" y="228" width="90"  height="16" rx="3" fill="#e74c3c"/>
+    <text x="210" y="240" fill="#6b7280">1</text>
+
+    <text x="28" y="270">HIGH</text>
+    <rect x="110" y="258" width="270" height="16" rx="3" fill="#e67e22"/>
+    <text x="390" y="270" fill="#6b7280">3</text>
+
+    <text x="28" y="300">MEDIUM</text>
+    <rect x="110" y="288" width="90"  height="16" rx="3" fill="#f1c40f"/>
+    <text x="210" y="300" fill="#6b7280">1</text>
+  </g>
+
+  <!-- 공격 유형별 -->
+  <text x="470" y="210" fill="#374151" font-size="14" font-weight="700">공격 유형별</text>
+  <g font-size="12">
+    <rect x="470" y="222" width="120" height="22" rx="4" fill="#eef2ff"/><text x="480" y="238" fill="#4338ca">BRUTE_FORCE · 1</text>
+    <rect x="600" y="222" width="120" height="22" rx="4" fill="#eef2ff"/><text x="610" y="238" fill="#4338ca">PORT_SCAN · 1</text>
+    <rect x="470" y="252" width="120" height="22" rx="4" fill="#eef2ff"/><text x="480" y="268" fill="#4338ca">SQL_INJECT · 1</text>
+    <rect x="600" y="252" width="120" height="22" rx="4" fill="#eef2ff"/><text x="610" y="268" fill="#4338ca">XSS · 1</text>
+    <rect x="470" y="282" width="120" height="22" rx="4" fill="#fef2f2"/><text x="480" y="298" fill="#b91c1c">MALWARE · 1</text>
+  </g>
+
+  <!-- AI 종합 요약 -->
+  <rect x="28" y="330" width="704" height="104" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="44" y="356" fill="#374151" font-size="13" font-weight="700">🤖 AI 종합 요약</text>
+  <text x="44" y="380" fill="#4b5563" font-size="13">
+    <tspan x="44" dy="0">오늘 총 5건의 보안 이벤트가 탐지되었습니다. 이 중 CRITICAL 1건, HIGH 3건으로 즉시 대응이</tspan>
+    <tspan x="44" dy="22">필요한 항목이 있습니다. 가장 많은 공격이 관측된 출처는 203.0.113.2이며, 해당 IP 차단과</tspan>
+    <tspan x="44" dy="22">고위험 이벤트의 개별 대응을 우선 검토할 것을 권장합니다.</tspan>
+  </text>
+</svg>

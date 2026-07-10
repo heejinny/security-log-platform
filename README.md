@@ -140,19 +140,25 @@ n8n UI → 우상단 메뉴 → **Import from File** →
 
 ---
 
-## 5. 스크린샷 위치
+## 5. 스크린샷 / 미리보기
 
-`docs/screenshots/` 에 아래 이미지를 넣어 README 에서 참조하세요.
+### 🚨 Discord 보안 알림 (Brute Force 탐지)
+실제 파이프라인 출력을 반영한 미리보기입니다.
 
-- `docs/screenshots/n8n-workflow.png` — n8n 워크플로우 캔버스
-- `docs/screenshots/discord-alert.png` — Discord 보안 알림 카드
-- `docs/screenshots/csv-output.png` — events.csv 결과
-- `docs/screenshots/daily-report.png` — 일일 리포트
+![Discord alert](docs/screenshots/discord-alert.svg)
 
-```markdown
-![n8n workflow](docs/screenshots/n8n-workflow.png)
-![discord alert](docs/screenshots/discord-alert.png)
-```
+### 📊 일일 리포트
+![Daily report](docs/screenshots/daily-report.svg)
+
+### 🔗 n8n 워크플로우 캔버스
+> 아래는 실제 UI 캡처 자리입니다. `docker compose up -d` 후 http://localhost:5678 에서
+> 워크플로우를 열어 캡처한 뒤 `docs/screenshots/n8n-workflow.png` 로 저장하세요.
+> (워크플로우 2개는 저장소의 `n8n/workflows/*.json` 를 Import 하면 됩니다.)
+
+<!-- ![n8n workflow](docs/screenshots/n8n-workflow.png) -->
+
+> 위 두 미리보기(`.svg`)는 실제 이벤트 데이터를 기반으로 생성한 것이며,
+> n8n 캔버스와 실제 Discord 전송 화면은 사용자의 환경에서 캡처해 추가할 수 있습니다.
 
 ---
 
