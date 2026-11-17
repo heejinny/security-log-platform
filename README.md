@@ -1,4 +1,4 @@
-# 🛡️ Security Log Automation Platform
+# Security Log Automation Platform
 
 <!-- 기술 스택 배지 (shields.io 정적 배지 — GitHub 에서 자동 렌더링) -->
 ![n8n](https://img.shields.io/badge/n8n-workflow-EA4B71?logo=n8n&logoColor=white)
@@ -14,7 +14,7 @@ n8n · Python · OpenAI · Discord 로 구성한 **보안 로그 자동 분석 &
 
 🔗 **Repository**: https://github.com/heejinny/security-log-platform
 
-> ⚠️ 모든 IP 는 문서화 전용 예약 대역(RFC 5737: `192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24`)을
+> 모든 IP 는 문서화 전용 예약 대역(RFC 5737: `192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24`)을
 > 사용한 **가상 데이터**이며, 실제 시스템을 대상으로 하지 않는 **교육·포트폴리오용** 프로젝트입니다.
 
 ---
@@ -142,15 +142,15 @@ n8n UI → 우상단 메뉴 → **Import from File** →
 
 ## 5. 스크린샷 / 미리보기
 
-### 🚨 Discord 보안 알림 (Brute Force 탐지)
+### Discord 보안 알림 (Brute Force 탐지)
 실제 파이프라인 출력을 반영한 미리보기입니다.
 
 ![Discord alert](docs/screenshots/discord-alert.svg)
 
-### 📊 일일 리포트
+### 일일 리포트
 ![Daily report](docs/screenshots/daily-report.svg)
 
-### 🔗 n8n 워크플로우 캔버스
+### n8n 워크플로우 캔버스
 > 아래는 실제 UI 캡처 자리입니다. `docker compose up -d` 후 http://localhost:5678 에서
 > 워크플로우를 열어 캡처한 뒤 `docs/screenshots/n8n-workflow.png` 로 저장하세요.
 > (워크플로우 2개는 저장소의 `n8n/workflows/*.json` 를 Import 하면 됩니다.)
